@@ -1,12 +1,12 @@
-//©Pªé¦w  ¸êºŞ3  104403034//
-import java.awt.BorderLayout; // ¥]§tªF¦è«n¥_¤¤   
+
+import java.awt.BorderLayout; // åŒ…å«æ±è¥¿å—åŒ—ä¸­   
 import java.awt.GridLayout;   // rows & columns
 import java.awt.Color;        
-import java.awt.event.ItemEvent;    //combobox & radiobutton ¨Ï¥Î//
+import java.awt.event.ItemEvent;    //combobox & radiobutton ä½¿ç”¨//
 import java.awt.event.ItemListener;
-import java.awt.event.ActionEvent;  //button ¨Ï¥Î//  
+import java.awt.event.ActionEvent;  //button ä½¿ç”¨//  
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;   //mouse ¨Ï¥Î//
+import java.awt.event.MouseListener;   //mouse ä½¿ç”¨//
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseEvent;
 
@@ -22,64 +22,64 @@ import javax.swing.JComboBox;
 
 
 public class Paintframe extends JFrame{
-	private JPanel conPanel;  //µe¥¬//
-	private JPanel square;    //¤Uµe­±//
-	private JPanel all;      //¥ªµe­±//
-	private JLabel label1;    //Ã¸¹Ï¤u¨ãÅã¥Ü//
-	private JLabel label2;    //µ§¨ê¤j¤pÅã¥Ü//
-	private JLabel label3;    //¤u¨ã°ÏÅã¥Ü//   
+	private JPanel conPanel;  //ç•«å¸ƒ//
+	private JPanel square;    //ä¸‹ç•«é¢//
+	private JPanel all;      //å·¦ç•«é¢//
+	private JLabel label1;    //ç¹ªåœ–å·¥å…·é¡¯ç¤º//
+	private JLabel label2;    //ç­†åˆ·å¤§å°é¡¯ç¤º//
+	private JLabel label3;    //å·¥å…·å€é¡¯ç¤º//   
 	private JLabel conmouse;
 	private JRadioButton small,medium,big;
 	private ButtonGroup radioGroup;
 	private JButton ground,background,clean;
 	private JCheckBox full;
-	private JLabel under;  //ª¬ºA¦C//
+	private JLabel under;  //ç‹€æ…‹åˆ—//
 	private JLabel point;   
-	private JComboBox list;   //Ã¸¹Ï¨÷¶b//
-	private static final String[] names ={"µ§¨ê","ª½½u","¾ò¶ê","¯x§Î","¶ê¨¤¯x§Î"};
-	private String pen="µ§¨ê";
+	private JComboBox list;   //ç¹ªåœ–å·è»¸//
+	private static final String[] names ={"ç­†åˆ·","ç›´ç·š","æ©¢åœ“","çŸ©å½¢","åœ“è§’çŸ©å½¢"};
+	private String pen="ç­†åˆ·";
 	private String check="no";
-	private String size="¤j";
+	private String size="å¤§";
 	
 	public Paintframe() {
-	       super("¤pµe®a¤¶­±");
+	       super("å°ç•«å®¶ä»‹é¢");
 	       
 	all = new JPanel();
 	square =new JPanel();
 	
-	label1 =new JLabel("[Ã¸¹Ï¤u¨ã]");
+	label1 =new JLabel("[ç¹ªåœ–å·¥å…·]");
 	all.add(label1);
 	
 	JComboBox jComboBox = new JComboBox(names);
 	list =jComboBox;
-	all.add(list);     //§âÃ¸¹Ï¤u¨ã¿ï¶µ¶×¥X//
+	all.add(list);     //æŠŠç¹ªåœ–å·¥å…·é¸é …åŒ¯å‡º//
     
-	label2 =new JLabel("[µ§¨ê¤j¤p]");
+	label2 =new JLabel("[ç­†åˆ·å¤§å°]");
 	all.add(label2);
 	
-    small =new JRadioButton("¤p");
+    small =new JRadioButton("å°");
     all.add(small);   
-    medium =new JRadioButton("¤¤");
+    medium =new JRadioButton("ä¸­");
     all.add(medium);   
-    big =new JRadioButton("¤j");
+    big =new JRadioButton("å¤§");
     all.add(big);   
     
     radioGroup =new ButtonGroup();
     radioGroup.add(big);
     radioGroup.add(medium);
-    radioGroup.add(small);    //³]¬°¤@­Óradiogroup  §â¤p¤¤¤j¿é¥X//
+    radioGroup.add(small);    //è¨­ç‚ºä¸€å€‹radiogroup  æŠŠå°ä¸­å¤§è¼¸å‡º//
     
-    full=new JCheckBox("¶ñº¡");
+    full=new JCheckBox("å¡«æ»¿");
 	all.add(full);
     
-	label3 =new JLabel("[¤u§@°Ï]");
+	label3 =new JLabel("[å·¥ä½œå€]");
 	all.add(label3);
 	
-    JButton ground =new JButton("«e´º¦â");
+    JButton ground =new JButton("å‰æ™¯è‰²");
 	all.add(ground);
-	JButton background =new JButton("­I´º¦â");
+	JButton background =new JButton("èƒŒæ™¯è‰²");
 	all.add(background);
-	JButton clean =new JButton("²M°£µe­±");
+	JButton clean =new JButton("æ¸…é™¤ç•«é¢");
 	all.add(clean);
 	
 	
@@ -88,30 +88,30 @@ public class Paintframe extends JFrame{
 				public void itemStateChanged(ItemEvent e){
 					if(full.isSelected()){
 						check="yes";
-						under.setText(String.format("¶ñº¡:%s",check));
+						under.setText(String.format("å¡«æ»¿:%s",check));
 					}
 					else{
 						check="no";
-						under.setText(String.format("¶ñº¡:%s",check));
+						under.setText(String.format("å¡«æ»¿:%s",check));
 					}
 				}
 			}
-	);      //¥Î³o­Óif else§PÂ_¦Aª¬ºA¦CÅã¥Ü¥X¦³µL¶ñº¡//
+	);      //ç”¨é€™å€‹if elseåˆ¤æ–·å†ç‹€æ…‹åˆ—é¡¯ç¤ºå‡ºæœ‰ç„¡å¡«æ»¿//
 
     RadioButtonHandler handlerR = new RadioButtonHandler(); 
 	  big.addItemListener((ItemListener) handlerR);
 	  medium.addItemListener((ItemListener) handlerR);
 	  small.addItemListener((ItemListener) handlerR);
-	       //³]©wradiobuttonhandler,¨C­Óevent·|°õ¦æ§¹©Ò¦³handlers//
+	       //è¨­å®šradiobuttonhandler,æ¯å€‹eventæœƒåŸ·è¡Œå®Œæ‰€æœ‰handlers//
 	  
 	ButtonHandler handler1 = new ButtonHandler();
 	  ground.addActionListener(handler1);
 	  background.addActionListener(handler1);
 	  clean.addActionListener(handler1);
-	  //³]©wbuttonhandler,¨C­Óevent·|°õ¦æ§¹©Ò¦³handlers//
+	  //è¨­å®šbuttonhandler,æ¯å€‹eventæœƒåŸ·è¡Œå®Œæ‰€æœ‰handlers//
 	  
     conPanel =new JPanel();
-    conPanel.setBackground(Color.WHITE); //µe¤£ªì³]¥Õ¦â//
+    conPanel.setBackground(Color.WHITE); //ç•«ä¸åˆè¨­ç™½è‰²//
     
       point=new JLabel();
   	  square.add(point);
@@ -121,86 +121,86 @@ public class Paintframe extends JFrame{
       
       conmouse =new JLabel("else condition");
       square.add(conmouse);    
-      //¦b¤Uµe­±Åã¥Ü¥X´å¼Ğ¦ì¸m  ¦³µL¶ñº¡ ©M´å¼Ğª¬ºA//
+      //åœ¨ä¸‹ç•«é¢é¡¯ç¤ºå‡ºæ¸¸æ¨™ä½ç½®  æœ‰ç„¡å¡«æ»¿ å’Œæ¸¸æ¨™ç‹€æ…‹//
     
     list.addItemListener(
 			new ItemListener(){
 				public void itemStateChanged(ItemEvent e) {
 					if(e.getStateChange()==ItemEvent.SELECTED){
 						pen=names[list.getSelectedIndex()];
-						JOptionPane.showMessageDialog(null, String.format("µ§¨ê:%s ",pen));
+						JOptionPane.showMessageDialog(null, String.format("ç­†åˆ·:%s ",pen));
 					}
 				}
 			}
-		);//¦pªG¦³¿ïÃ¸¹Ï¤u¨ã,¸õ¥X¹ïÀ³°T®§®Ø//
+		);//å¦‚æœæœ‰é¸ç¹ªåœ–å·¥å…·,è·³å‡ºå°æ‡‰è¨Šæ¯æ¡†//
 		
-      square.setLayout(new GridLayout(1,3));   //³]©w¤U¼hgriglayout±ø¥ó//
+      square.setLayout(new GridLayout(1,3));   //è¨­å®šä¸‹å±¤griglayoutæ¢ä»¶//
 	  add(square,BorderLayout.SOUTH);
-	  all.setLayout(new GridLayout(12,1));    //³]©w¥ªµe­±griglayout±ø¥ó//   
-	  add(all,BorderLayout.WEST);             //³]©w¥ªborderlayout¬°¦èÃä//
-	  add(conPanel,BorderLayout.CENTER);   //³]©w¥Dgriglayout¬°¤¤¶¡//
+	  all.setLayout(new GridLayout(12,1));    //è¨­å®šå·¦ç•«é¢griglayoutæ¢ä»¶//   
+	  add(all,BorderLayout.WEST);             //è¨­å®šå·¦borderlayoutç‚ºè¥¿é‚Š//
+	  add(conPanel,BorderLayout.CENTER);   //è¨­å®šä¸»griglayoutç‚ºä¸­é–“//
 		
 	 MouseHandler handler11 = (MouseHandler) new MouseHandler(); 
 		conPanel.addMouseListener(handler11);
 		conPanel.addMouseMotionListener( handler11);
 	}
-	  //³]©wmousehandler,¨C­Óevent·|°õ¦æ§¹©Ò¦³handlers//
+	  //è¨­å®šmousehandler,æ¯å€‹eventæœƒåŸ·è¡Œå®Œæ‰€æœ‰handlers//
 	
 	 private class RadioButtonHandler implements ItemListener{
 		public void itemStateChanged(ItemEvent event){
 			if(big.isSelected())
-				size="¤j";
+				size="å¤§";
 			if(medium.isSelected())
-				size="¤¤";  
+				size="ä¸­";  
 			if(small.isSelected())
-				size="¤p";
-			JOptionPane.showMessageDialog(null, String.format("µ§¨ê:%s",size));
+				size="å°";
+			JOptionPane.showMessageDialog(null, String.format("ç­†åˆ·:%s",size));
 		 }
-	 }    //®Ú¾Ú©Ò¿ïµ§¨ê¤j¤p,¸õ¥X¹ïÀ³°T®§®Ø//
+	 }    //æ ¹æ“šæ‰€é¸ç­†åˆ·å¤§å°,è·³å‡ºå°æ‡‰è¨Šæ¯æ¡†//
 	 
 	private  class MouseHandler implements MouseListener, MouseMotionListener 
 	{
 		public void mouseDragged(MouseEvent e) {
-			point.setText( String.format( "ÂsÄı¦ì¸m: (%d, %d)", 
+			point.setText( String.format( "ç€è¦½ä½ç½®: (%d, %d)", 
 		            e.getX(), e.getY() ) );
-			conmouse.setText(String.format("©ì¦²"));
+			conmouse.setText(String.format("æ‹–æ›³"));
 		}
 		public void mouseMoved(MouseEvent e) {
-			point.setText( String.format( "ÂsÄı¦ì¸m: (%d, %d)", 
+			point.setText( String.format( "ç€è¦½ä½ç½®: (%d, %d)", 
 		            e.getX(), e.getY() ) );
-			conmouse.setText(String.format("²¾°Ê"));
+			conmouse.setText(String.format("ç§»å‹•"));
 		}
 		public void mouseClicked(MouseEvent e) {
-			point.setText( String.format( "ÂsÄı¦ì¸m: (%d, %d)", 
+			point.setText( String.format( "ç€è¦½ä½ç½®: (%d, %d)", 
 		            e.getX(), e.getY() ) );
-			conmouse.setText(String.format("ÂIÀ»"));
+			conmouse.setText(String.format("é»æ“Š"));
 		}
 		public void mousePressed(MouseEvent e) {
-			point.setText( String.format( "ÂsÄı¦ì¸m: (%d, %d)", 
+			point.setText( String.format( "ç€è¦½ä½ç½®: (%d, %d)", 
 		            e.getX(), e.getY() ) );
-			conmouse.setText(String.format("«ö¤U"));
+			conmouse.setText(String.format("æŒ‰ä¸‹"));
 		}
 		public void mouseReleased(MouseEvent e) {
-			point.setText( String.format( "ÂsÄı¦ì¸m: (%d, %d)", 
+			point.setText( String.format( "ç€è¦½ä½ç½®: (%d, %d)", 
 		            e.getX(), e.getY() ) );
-			conmouse.setText(String.format("©ñ¶}"));	
+			conmouse.setText(String.format("æ”¾é–‹"));	
 		}
 		public void mouseEntered(MouseEvent e) {
-			point.setText( String.format( "ÂsÄı¦ì¸m: (%d, %d)", 
+			point.setText( String.format( "ç€è¦½ä½ç½®: (%d, %d)", 
 		            e.getX(), e.getY() ) );
-			conmouse.setText(String.format("¶i¤J"));
+			conmouse.setText(String.format("é€²å…¥"));
 		}
 		public void mouseExited(MouseEvent e) {
-			point.setText( String.format( "ÂsÄı¦ì¸m: (%d, %d)", 
+			point.setText( String.format( "ç€è¦½ä½ç½®: (%d, %d)", 
 		            e.getX(), e.getY() ) );
-			conmouse.setText(String.format("Â÷¶}"));
+			conmouse.setText(String.format("é›¢é–‹"));
 		}	  
-	}   //®Ú¾Ú´å¼Ğªº²¾°Êª¬ºA,¸õ¥X¹ïÀ³°T®§®Ø//
+	}   //æ ¹æ“šæ¸¸æ¨™çš„ç§»å‹•ç‹€æ…‹,è·³å‡ºå°æ‡‰è¨Šæ¯æ¡†//
 	
 	 private class ButtonHandler implements ActionListener{
 
 			public void actionPerformed (ActionEvent event){
 					JOptionPane.showMessageDialog( Paintframe.this,String.format("canvas:%s", event.getActionCommand()));
 				 }
-	 }//®Ú¾Ú¤u¨ã°Ï¿ï¾Ü,¸õ¥X¹ïÀ³°T®§®Ø//
+	 }//æ ¹æ“šå·¥å…·å€é¸æ“‡,è·³å‡ºå°æ‡‰è¨Šæ¯æ¡†//
  }
